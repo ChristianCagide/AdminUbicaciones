@@ -23,5 +23,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
+
+
     }
 }
