@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "896843820236",
+    "firebase_url": "https://adminubicaciones.firebaseio.com",
+    "project_id": "adminubicaciones",
+    "storage_bucket": "adminubicaciones.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896843820236:android:9a1f83f87eac634d",
+        "android_client_info": {
+          "package_name": "com.example.adminubicaciones"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896843820236-861v1vjabs5qle5p0bb1vm39vrd0uk38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdAM6AYyx1kqQPNSmnFhy_U3xNV0Up9H0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

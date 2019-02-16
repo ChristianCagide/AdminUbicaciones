@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AdminUbicaciones</string>
+    <string name="titlelogin">INICIAR SESIÓN</string>
+    <string name="username">CORREO ELECTRÓNICO</string>
+    <string name="password">CONTRASEÑA</string>
+    <string name="login">ACCEDER</string>
+    <string name="register">¡REGISTRATE!</string>
+    <string name="titleregiter">REGISTRATE</string>
+    <string name="name">NOMBRE</string>
+    <string name="passwordconfirm">CONFIRMAR CONTRASEÑA</string>
+    <string name="cancel">CANCELAR</string>
+    <string name="registernow">REGISTRARSE</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_agregar_abucacion">AGREGAR UBICACIÓN</string>
+    <string name="descripcion">DESCRIPCIÓN</string>
+    <string name="agregar">AGREGAR</string>
+</resources>
