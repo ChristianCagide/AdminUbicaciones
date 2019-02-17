@@ -84,7 +84,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //Guardar recordatorio en la base de datos
         DatabaseReference myRef = database.getReference(firebaseAuth.getCurrentUser().getUid());
-        myRef.child(titulo).setValue(mensaje);
+        myRef.child("Recordatorios").child(titulo).setValue(mensaje);
         finish();
         startActivity(new Intent(this,DashboardActivity.class));
     }

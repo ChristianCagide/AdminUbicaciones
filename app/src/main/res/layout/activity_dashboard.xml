@@ -23,6 +23,12 @@
         android:layout_marginTop="15dp"
         android:text="RECORDATORIOS" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="406dp"
+        tools:itemCount="0" />
+
     <Button
         android:id="@+id/button_agreg_record"
         android:layout_width="wrap_content"
