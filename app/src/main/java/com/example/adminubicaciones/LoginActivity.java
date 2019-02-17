@@ -38,15 +38,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(firebaseAuth.getCurrentUser() != null){
             //Abre la aplicacion
             finish();
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
         }
 
         progressDialog = new ProgressDialog(this);
 
         mTextEmail = (EditText)findViewById(R.id.edittext_email);
         mTextPassword = (EditText)findViewById(R.id.edittext_password);
-        mButtonLogin = (Button) findViewById(R.id.button_login);
-        mTextViewRegister = (TextView) findViewById(R.id.textview_register);
+        mButtonLogin = (Button)findViewById(R.id.button_login);
+        mTextViewRegister = (TextView)findViewById(R.id.textview_register);
 
         mButtonLogin.setOnClickListener(this);
         mTextViewRegister.setOnClickListener(this);
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        progressDialog.setMessage("Registrando usuario...");
+        progressDialog.setMessage("Iniciando Sesión...");
         progressDialog.show();
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(task.isSuccessful()){
                             //Abre aplicacion
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
                         }
                     }
                 });

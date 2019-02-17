@@ -1,5 +1,6 @@
 package com.example.adminubicaciones;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -17,6 +18,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -31,6 +35,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private FirebaseAuth firebaseAuth;
 
+    private FirebaseDatabase database;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +47,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if(firebaseAuth.getCurrentUser() != null){
             //Abre la aplicacion
             finish();
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
         }
+
+        database = FirebaseDatabase.getInstance();
 
         progressDialog = new ProgressDialog(this);
 
@@ -58,8 +67,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void registerUser(){
-        String name = mTextName.getText().toString().trim();
-        String email = mTextEmail.getText().toString().trim();
+        final String name = mTextName.getText().toString().trim();
+        final String email = mTextEmail.getText().toString().trim();
         String password = mTextPassword.getText().toString().trim();
         String password_confirm = mTextPasswordConfirm.getText().toString().trim();
 
@@ -80,11 +89,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this,"Vuelva a introducir la contraseña", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(password != password_confirm){
-            //passwords no son iguales
-            Toast.makeText(this,"Contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         progressDialog.setMessage("Registrando usuario...");
         progressDialog.show();
@@ -96,16 +100,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if(task.isSuccessful()){
                             //se registro de manera correcta el usuario
                             Toast.makeText(RegisterActivity.this,"Registrado correctamente", Toast.LENGTH_SHORT).show();
+                            //Agregar datos a la base de datos
+                            DatabaseReference myRef = database.getReference(firebaseAuth.getCurrentUser().getUid());
+                            myRef.child("Name").setValue(name);
+                            myRef.child("Correo").setValue(email);
                             //Abre aplicacion
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
                         } else {
                             Toast.makeText(RegisterActivity.this,"No se pudo registrar", Toast.LENGTH_SHORT).show();
                         }
                         progressDialog.dismiss();
                     }
                 });
-
 
     }
 
