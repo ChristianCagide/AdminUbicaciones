@@ -24,6 +24,7 @@
         android:text="RECORDATORIOS" />
 
     <Button
+        android:id="@+id/button_agreg_record"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:text="AGREGAR NUEVO RECORDATORIO"/>

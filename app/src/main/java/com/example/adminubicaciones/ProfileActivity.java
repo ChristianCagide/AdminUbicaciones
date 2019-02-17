@@ -33,8 +33,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(this, LoginActivity.class));
         }
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
         mButtonLogout = (Button)findViewById(R.id.button_logout);
         mButtonLogout.setOnClickListener(this);
 
